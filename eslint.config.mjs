@@ -29,6 +29,11 @@ const eslintConfig = defineConfig([
             ],
             "boundaries/ignore": ["**/*.test.*", "**/*.spec.*"],
         },
+        "import/resolver": {
+            node: {
+                extensions: [".js", ".jsx", ".ts", ".tsx"],
+            },
+        },
         languageOptions: {
             parser: tsParser,
             parserOptions: {
