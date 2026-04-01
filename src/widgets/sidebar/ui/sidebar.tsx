@@ -1,56 +1,68 @@
-import { ClipboardList, LayoutDashboard, type LucideIcon, Package, Settings } from "lucide-react"
+import { ChevronRight, Store } from "lucide-react"
 import Link from "next/link"
-
-interface NavLinkProps {
-    href: string
-    label: string
-    icon: LucideIcon
-    isActive: boolean
-}
-
-const menuItems = [
-    { label: "Dashboard", to: "/dashboard", icon: LayoutDashboard },
-    { label: "Comenzi", to: "/orders", icon: ClipboardList },
-    { label: "Produse", to: "/catalog", icon: Package },
-    { label: "Setari", to: "/dashboard/settings", icon: Settings },
-]
-
-const NavLink = ({ href, label, icon: Icon, isActive }: NavLinkProps) => {
-    return (
-        <Link
-            href={href}
-            className={`relative flex items-center gap-3 px-4 py-3 transition-all duration-200 ${
-                isActive
-                    ? "bg-[#FE5F00]/10 after:absolute after:top-0 after:bottom-0 after:left-0 after:block after:h-full after:w-0.5 after:bg-[#FE5F00]"
-                    : "opacity-70 hover:bg-gray-50 hover:opacity-100"
-            }`}
-        >
-            <Icon size={18} className={isActive ? "text-[#FE5F00]" : "text-black"} />
-            <span
-                className={`font-nunito text-sm ${
-                    isActive ? "font-semibold text-[#FE5F00]" : "font-medium text-black"
-                }`}
-            >
-                {label}
-            </span>
-        </Link>
-    )
-}
+import { SidebarMenu } from "./sidebar-menu"
+import { SidebarHeader } from "@widgets/sidebar/ui/sidebar-header"
 
 export const Sidebar = () => {
     return (
-        <aside className="h-[calc(100vh-32px)] w-full max-w-87">
-            <div className="h-full rounded-2xl bg-white">
-                <nav className="">
-                    {menuItems.map((item) => (
-                        <NavLink
-                            href={item.to}
-                            key={item.to}
-                            {...item}
-                            isActive={"/dashboard" === item.to}
-                        />
-                    ))}
-                </nav>
+        <aside className="sticky top-4 h-[calc(100vh-32px)] w-full max-w-87 self-start">
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white">
+                <div className="border-b border-gray-100 bg-linear-to-b from-gray-50 to-white px-5 py-4">
+                    <SidebarHeader />
+                </div>
+
+                <SidebarMenu />
+
+                <div className="border-t border-gray-100 px-5 py-4">
+                    <div className="mb-3 flex items-center gap-3 rounded-xl border border-gray-100 px-3 py-2">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FE5F00]/10 text-sm font-semibold text-[#FE5F00]">
+                            D
+                        </div>
+                        <div className="min-w-0">
+                            <div className="truncate text-sm font-semibold text-gray-900">
+                                Dorin Admin
+                            </div>
+                            <div className="truncate text-xs text-gray-500">Administrator</div>
+                        </div>
+                    </div>
+                    <div className="rounded-xl bg-gray-50 p-3">
+                        <div className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
+                            Stare sistem
+                        </div>
+                        <div className="mt-1 flex items-center justify-between gap-2">
+                            <div>
+                                <div className="text-sm font-semibold text-gray-900">
+                                    Restaurant online
+                                </div>
+                                <div className="text-xs text-gray-500">
+                                    Ultima sincronizare: acum 2 min
+                                </div>
+                            </div>
+                            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                        </div>
+                        <Link
+                            href="/dashboard/settings"
+                            className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#FE5F00] transition-opacity hover:opacity-80"
+                        >
+                            Vezi setarile
+                            <ChevronRight size={14} />
+                        </Link>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between">
+                        <Link
+                            href="/orders"
+                            className="text-xs font-medium text-gray-600 transition-colors hover:text-gray-900"
+                        >
+                            Vezi comenzi
+                        </Link>
+                        <Link
+                            href="/catalog"
+                            className="text-xs font-medium text-gray-600 transition-colors hover:text-gray-900"
+                        >
+                            Gestioneaza produse
+                        </Link>
+                    </div>
+                </div>
             </div>
         </aside>
     )
