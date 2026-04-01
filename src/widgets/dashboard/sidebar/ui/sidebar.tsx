@@ -1,7 +1,7 @@
-import { ChevronRight, Store } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { SidebarMenu } from "./sidebar-menu"
-import { SidebarHeader } from "@widgets/sidebar/ui/sidebar-header"
+import { SidebarHeader } from "./sidebar-header"
 
 export const Sidebar = () => {
     return (
