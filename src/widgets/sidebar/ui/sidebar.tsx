@@ -7,7 +7,7 @@ export const Sidebar = () => {
     return (
         <aside className="sticky top-4 h-[calc(100vh-32px)] w-full max-w-87 self-start">
             <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white">
-                <div className="border-b border-gray-100 bg-linear-to-b from-gray-50 to-white px-5 py-4">
+                <div className="border-b border-gray-100">
                     <SidebarHeader />
                 </div>
 
