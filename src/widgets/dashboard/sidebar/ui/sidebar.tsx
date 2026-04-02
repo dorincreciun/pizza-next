@@ -10,10 +10,10 @@ import {
 import Link from "next/link"
 import { PropsWithChildren } from "react"
 import { cn } from "@shared/utils/cn"
-import { SidebarLogo } from "@widgets/dashboard/sidebar/ui/sidebar-logo"
-import { SidebarMembers } from "@widgets/dashboard/sidebar/ui/sidebar-members"
 import { DASHBOARD_ROUTES } from "@shared/const"
-import { SidebarItem } from "@widgets/dashboard/sidebar/ui/sidebar-item"
+import { SidebarLogo } from "./sidebar-logo"
+import { SidebarMembers } from "./sidebar-members"
+import { SidebarItem } from "./sidebar-item"
 
 const menuGroups = [
     {
@@ -52,7 +52,7 @@ const SidebarDivider = ({ className }: { className?: string }) => {
 }
 
 const SidebarFooter = ({ children }: PropsWithChildren) => {
-    return <footer>{children}</footer>
+    return <footer className="pb-4">{children}</footer>
 }
 
 const SidebarHeader = ({ children }: PropsWithChildren) => {
@@ -68,7 +68,7 @@ const SidebarGroup = ({ children, className }: PropsWithChildren<{ className?: s
 )
 
 const SidebarGroupLabel = ({ children }: PropsWithChildren) => (
-    <div className="px-4 pb-1 text-[11px] font-semibold tracking-wide text-gray-400 uppercase">
+    <div className="mx-2 px-4 pb-1 text-[11px] font-semibold tracking-wide text-gray-400 uppercase">
         {children}
     </div>
 )
@@ -103,7 +103,7 @@ export const Sidebar = () => {
 
             <SidebarDivider className="mb-3" />
             <SidebarFooter>
-                <div className="mb-3 flex items-center gap-3 rounded-xl border border-gray-100 px-3 py-2">
+                <div className="mx-2 mb-3 flex items-center gap-3 rounded-xl border border-gray-100 px-3 py-2">
                     <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FE5F00]/10 text-sm font-semibold text-[#FE5F00]">
                         D
                     </div>
@@ -114,7 +114,7 @@ export const Sidebar = () => {
                         <div className="truncate text-xs text-gray-500">Administrator</div>
                     </div>
                 </div>
-                <div className="rounded-xl bg-gray-50 p-3">
+                <div className="mx-2 rounded-xl bg-gray-50 p-3">
                     <div className="text-xs font-semibold tracking-wide text-gray-500 uppercase">
                         Stare sistem
                     </div>
