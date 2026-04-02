@@ -16,7 +16,7 @@ import {
     ToggleRight,
     Trash,
 } from "lucide-react"
-import { Button } from "@shared/ui"
+import { Button, Card } from "@shared/ui"
 import Image from "next/image"
 import Link from "next/link"
 import { DASHBOARD_ROUTES } from "@shared/const"
@@ -55,7 +55,7 @@ export default function ProductsPage() {
         <div className="flex flex-col gap-8">
             <Header />
 
-            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+            <Card>
                 <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
                     <table className="w-full min-w-[1100px] table-auto border-separate border-spacing-0">
                         <thead className="bg-gray-50/80">
@@ -227,7 +227,7 @@ export default function ProductsPage() {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </Card>
         </div>
     )
 }

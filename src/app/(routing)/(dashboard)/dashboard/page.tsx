@@ -10,6 +10,7 @@ import {
     YAxis,
 } from "recharts"
 import { useMemo, useState } from "react"
+import { Card } from "@shared/ui"
 
 type Interval = "daily" | "monthly" | "yearly"
 type StatusKey = "success" | "failed" | "pending"
@@ -113,13 +114,13 @@ export default function BoardPage() {
 
     return (
         <section className="w-full">
-            <div className="w-full rounded-2xl border border-gray-100 bg-white p-6">
-                <div className="flex flex-col gap-4 p-4 md:flex-row md:items-start md:justify-between">
+            <Card spacing="lg">
+                <div className="flex flex-col gap-4 pb-2 md:flex-row md:items-start md:justify-between">
                     <div>
-                        <div className="text-sm font-semibold text-gray-900">
+                        <div className="text-base font-semibold tracking-tight text-gray-900">
                             Statistice cumpărări
                         </div>
-                        <div className="mt-1 text-xs text-gray-500">
+                        <div className="mt-1 text-sm text-gray-500">
                             Success, Failed și În așteptare (mock data)
                         </div>
                     </div>
@@ -165,7 +166,7 @@ export default function BoardPage() {
                 </div>
 
                 <div className="mt-6 space-y-6">
-                    <div className="overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-6">
+                    <Card tone="soft" className="rounded-xl p-6">
                         <div className="h-[360px] min-h-0 w-full min-w-0 overflow-hidden">
                             <ResponsiveContainer width="100%" height={chartHeight}>
                                 <AreaChart data={series} margin={chartMargin}>
@@ -268,7 +269,7 @@ export default function BoardPage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Card>
 
                     <div
                         className="grid grid-cols-1 gap-6 sm:grid-cols-3"
@@ -277,7 +278,7 @@ export default function BoardPage() {
                             paddingRight: chartCardPaddingPx + chartMargin.right,
                         }}
                     >
-                        <div className="rounded-xl border border-gray-100 bg-white p-6">
+                        <Card className="rounded-xl p-6">
                             <div className="flex items-center gap-2">
                                 <span
                                     className="h-2.5 w-2.5 rounded-full"
@@ -294,8 +295,8 @@ export default function BoardPage() {
                             <div className="mt-2 text-2xl font-bold text-gray-900">
                                 {totals.success}
                             </div>
-                        </div>
-                        <div className="rounded-xl border border-gray-100 bg-white p-6">
+                        </Card>
+                        <Card className="rounded-xl p-6">
                             <div className="flex items-center gap-2">
                                 <span
                                     className="h-2.5 w-2.5 rounded-full"
@@ -312,8 +313,8 @@ export default function BoardPage() {
                             <div className="mt-2 text-2xl font-bold text-gray-900">
                                 {totals.failed}
                             </div>
-                        </div>
-                        <div className="rounded-xl border border-gray-100 bg-white p-6">
+                        </Card>
+                        <Card className="rounded-xl p-6">
                             <div className="flex items-center gap-2">
                                 <span
                                     className="h-2.5 w-2.5 rounded-full"
@@ -330,10 +331,10 @@ export default function BoardPage() {
                             <div className="mt-2 text-2xl font-bold text-gray-900">
                                 {totals.pending}
                             </div>
-                        </div>
+                        </Card>
                     </div>
                 </div>
-            </div>
+            </Card>
         </section>
     )
 }
