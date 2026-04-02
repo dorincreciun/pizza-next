@@ -1,11 +1,8 @@
-"use client"
-
 import type { ButtonHTMLAttributes } from "react"
 
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Loader } from "lucide-react"
-import { useFormStatus } from "react-dom"
 import { cn } from "@shared/utils/cn"
 
 // --- TYPES ---
@@ -226,31 +223,38 @@ export const Button = ({
     asChild = false,
     ...rest
 }: ButtonProps) => {
-    const { pending } = useFormStatus()
-
-    const activeLoading = Boolean(isLoading || pending)
-    const buttonDisabled = Boolean(activeLoading || disabled)
-
     const Comp = asChild ? Slot : "button"
+
+    if (asChild) {
+        return (
+            <Comp
+                className={cn(buttonCva({ size, color, kind, onlyIcon }), className)}
+                data-loading="false"
+                {...rest}
+            >
+                {children}
+            </Comp>
+        )
+    }
 
     return (
         <Comp
-            disabled={buttonDisabled}
+            disabled={isLoading || disabled}
             className={cn(buttonCva({ size, color, kind, onlyIcon }), className)}
-            data-loading={activeLoading ? "true" : "false"}
+            data-loading={isLoading ? "true" : "false"}
             {...rest}
         >
             <span
                 className={cn(
                     "inline-flex items-center justify-center gap-2",
                     "transition-opacity duration-150",
-                    activeLoading && "opacity-0",
+                    isLoading && "opacity-0",
                 )}
             >
                 {children}
             </span>
 
-            {activeLoading && (
+            {isLoading && (
                 <span className="absolute inset-0 flex items-center justify-center">
                     <Loader className="animate-spin" size={20} />
                 </span>

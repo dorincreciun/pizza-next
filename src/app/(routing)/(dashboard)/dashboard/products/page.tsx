@@ -18,6 +18,8 @@ import {
 } from "lucide-react"
 import { Button } from "@shared/ui"
 import Image from "next/image"
+import Link from "next/link"
+import { DASHBOARD_ROUTES } from "@shared/const"
 
 const Header = () => {
     return (
@@ -38,8 +40,10 @@ const Header = () => {
                 <Button kind="outline" color="secondary">
                     Filtrează
                 </Button>
-                <Button>
-                    <Plus /> Product
+                <Button asChild>
+                    <Link href={DASHBOARD_ROUTES.PRODUCTS_ADD}>
+                        <Plus /> Product
+                    </Link>
                 </Button>
             </div>
         </div>
@@ -56,7 +60,7 @@ export default function ProductsPage() {
                     <table className="w-full min-w-[1100px] table-auto border-separate border-spacing-0">
                         <thead className="bg-gray-50/80">
                             <tr className="border-b border-gray-100">
-                                <th className="w-[4.5rem] pl-5 pr-4 py-3.5 text-center text-xs font-semibold text-gray-500">
+                                <th className="w-[4.5rem] py-3.5 pr-4 pl-5 text-center text-xs font-semibold text-gray-500">
                                     <FileImage size={15} className="mx-auto text-gray-400" />
                                 </th>
                                 <th className="px-4 py-3.5 text-left text-xs font-semibold text-gray-500">
@@ -79,13 +83,19 @@ export default function ProductsPage() {
                                 </th>
                                 <th className="px-4 py-3.5 text-right text-xs font-semibold text-gray-500">
                                     <div className="flex items-center justify-end gap-2 whitespace-nowrap">
-                                        <BatteryMedium size={13} className="shrink-0 text-gray-400" />
+                                        <BatteryMedium
+                                            size={13}
+                                            className="shrink-0 text-gray-400"
+                                        />
                                         Stoc
                                     </div>
                                 </th>
                                 <th className="px-4 py-3.5 text-left text-xs font-semibold text-gray-500">
                                     <div className="flex items-center gap-2 whitespace-nowrap">
-                                        <ChartColumnStacked size={13} className="shrink-0 text-gray-400" />
+                                        <ChartColumnStacked
+                                            size={13}
+                                            className="shrink-0 text-gray-400"
+                                        />
                                         Categorie
                                     </div>
                                 </th>
@@ -97,11 +107,14 @@ export default function ProductsPage() {
                                 </th>
                                 <th className="px-4 py-3.5 text-left text-xs font-semibold text-gray-500">
                                     <div className="flex items-center gap-2 whitespace-nowrap">
-                                        <CalendarDays size={13} className="shrink-0 text-gray-400" />
+                                        <CalendarDays
+                                            size={13}
+                                            className="shrink-0 text-gray-400"
+                                        />
                                         Timestamp
                                     </div>
                                 </th>
-                                <th className="w-14 pl-4 pr-5 py-3.5 text-center">
+                                <th className="w-14 py-3.5 pr-5 pl-4 text-center">
                                     <Settings
                                         size={15}
                                         className="mx-auto cursor-pointer text-gray-400 transition-colors hover:text-gray-500"
@@ -113,7 +126,7 @@ export default function ProductsPage() {
                         <tbody className="divide-y divide-gray-100">
                             <tr className="transition-colors hover:bg-gray-50/70">
                                 {/* Imagine — mai mică, mai compactă */}
-                                <td className="pl-5 pr-4 py-4 align-middle">
+                                <td className="py-4 pr-4 pl-5 align-middle">
                                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FE5F00]/10">
                                         <Image
                                             src="/logo-pizza.png"
@@ -128,14 +141,17 @@ export default function ProductsPage() {
                                 {/* Nume */}
                                 <td className="px-4 py-4 align-middle">
                                     <div className="space-y-1">
-                                        <div className="text-sm font-medium leading-snug text-gray-900">
+                                        <div className="text-sm leading-snug font-medium text-gray-900">
                                             Frigider Whirlpool WHSD18A013C1 fără congelator
                                         </div>
                                         <div className="text-xs text-gray-500">
                                             306 l / 177 cm / White
                                         </div>
                                         <div className="flex items-start gap-1.5 pt-0.5 text-[10px] leading-relaxed text-gray-400">
-                                            <Forward size={11} className="mt-0.5 shrink-0 opacity-80" />
+                                            <Forward
+                                                size={11}
+                                                className="mt-0.5 shrink-0 opacity-80"
+                                            />
                                             <span className="max-w-[220px] truncate">
                                                 /electrocasnice-mari/frigidere/whirlpool-whsd18a013c1-cu-1-camera-white
                                             </span>
@@ -152,12 +168,12 @@ export default function ProductsPage() {
                                 </td>
 
                                 {/* Preț */}
-                                <td className="px-4 py-4 text-right align-middle text-sm font-semibold tabular-nums text-gray-900">
+                                <td className="px-4 py-4 text-right align-middle text-sm font-semibold text-gray-900 tabular-nums">
                                     1 000 MDL
                                 </td>
 
                                 {/* Stoc */}
-                                <td className="px-4 py-4 text-right align-middle text-sm tabular-nums text-gray-600">
+                                <td className="px-4 py-4 text-right align-middle text-sm text-gray-600 tabular-nums">
                                     0 / 0
                                 </td>
 
@@ -177,18 +193,24 @@ export default function ProductsPage() {
                                 <td className="px-4 py-4 align-middle">
                                     <div className="flex flex-col gap-2 text-xs text-gray-500">
                                         <div className="flex items-center gap-1.5 whitespace-nowrap">
-                                            <CalendarArrowDown size={11} className="shrink-0 text-gray-400" />
+                                            <CalendarArrowDown
+                                                size={11}
+                                                className="shrink-0 text-gray-400"
+                                            />
                                             <span className="tabular-nums">02.04.2026</span>
                                         </div>
                                         <div className="flex items-center gap-1.5 whitespace-nowrap">
-                                            <CalendarArrowUp size={11} className="shrink-0 text-gray-400" />
+                                            <CalendarArrowUp
+                                                size={11}
+                                                className="shrink-0 text-gray-400"
+                                            />
                                             <span className="tabular-nums">02.04.2026</span>
                                         </div>
                                     </div>
                                 </td>
 
                                 {/* Acțiuni */}
-                                <td className="pl-4 pr-5 py-4 text-right align-middle">
+                                <td className="py-4 pr-5 pl-4 text-right align-middle">
                                     <div className="flex flex-col items-end justify-center gap-1.5">
                                         <Button onlyIcon kind="ghost" color="secondary" size="xs">
                                             <Eye size={16} />
