@@ -72,10 +72,10 @@ export default function AddProductPage() {
                                         type="button"
                                         onClick={() => setActiveTab(tab.key)}
                                         className={[
-                                            "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
+                                        "relative inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200",
                                             isActive
-                                                ? "bg-white text-gray-900 shadow-sm"
-                                                : "text-gray-500 hover:text-gray-800",
+                                            ? "bg-[#FE5F00]/10 text-[#FE5F00] after:absolute after:right-2 after:bottom-0 after:left-2 after:h-0.5 after:rounded-full after:bg-[#FE5F00]"
+                                            : "text-gray-500 hover:bg-gray-100 hover:text-gray-800",
                                         ].join(" ")}
                                     >
                                         <Icon size={15} />
