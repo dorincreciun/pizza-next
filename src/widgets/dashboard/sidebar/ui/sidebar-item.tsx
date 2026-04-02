@@ -2,8 +2,8 @@
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { cn } from "@shared/utils/cn"
 import { ReactNode } from "react"
+import { cn } from "@shared/utils/cn"
 
 interface SidebarItemProps {
     href: string
@@ -21,14 +21,21 @@ export const SidebarItem = ({ href, label, icon }: SidebarItemProps) => {
         <Link
             href={href}
             className={cn(
-                "mx-2 flex items-center gap-3 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
+                "relative flex items-center gap-3 px-4 py-3 transition-all duration-200",
                 isActive
-                    ? "bg-[#FE5F00]/10 text-[#FE5F00]"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                    ? "bg-[#FE5F00]/10 after:absolute after:top-0 after:bottom-0 after:left-0 after:block after:h-full after:w-0.5 after:bg-[#FE5F00] [&>svg]:text-[#FE5F00]"
+                    : "opacity-70 hover:bg-gray-50 hover:opacity-100 [&>svg]:text-black",
             )}
         >
             {icon}
-            <span>{label}</span>
+            <span
+                className={cn(
+                    "font-nunito text-sm",
+                    isActive ? "font-semibold text-[#FE5F00]" : "font-medium text-black",
+                )}
+            >
+                {label}
+            </span>
         </Link>
     )
 }

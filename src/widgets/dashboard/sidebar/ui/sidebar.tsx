@@ -38,7 +38,7 @@ const SidebarGroup = ({ children, className }: PropsWithChildren<{ className?: s
 )
 
 const SidebarGroupLabel = ({ children }: PropsWithChildren) => (
-    <div className="mx-2 px-4 pb-1 text-[11px] font-semibold tracking-wide text-gray-400 uppercase">
+    <div className="px-4 pb-1 text-[11px] font-semibold tracking-wide text-gray-400 uppercase">
         {children}
     </div>
 )

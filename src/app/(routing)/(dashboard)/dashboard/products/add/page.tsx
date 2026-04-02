@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Check, ImagePlus, Languages, LayoutGrid, PackagePlus } from "lucide-react"
+import { Check, ImagePlus, Languages, LayoutGrid, PackagePlus, Plus } from "lucide-react"
 import { Button, InputControl, InputField, InputLabel, InputRoot } from "@shared/ui"
 
 type TabKey = "general" | "translations" | "images"
@@ -20,14 +20,7 @@ const categories = [
     { id: "bauturi", label: "Bauturi" },
 ]
 
-const ingredients = [
-    "Mozzarella",
-    "Sos de rosii",
-    "Busuioc",
-    "Pepperoni",
-    "Ciuperci",
-    "Parmezan",
-]
+const ingredients = ["Mozzarella", "Sos de rosii", "Busuioc", "Pepperoni", "Ciuperci", "Parmezan"]
 
 const localeConfig: Array<{ key: LocaleKey; label: string }> = [
     { key: "ro", label: "Romana (RO)" },
@@ -40,7 +33,7 @@ export default function AddProductPage() {
 
     return (
         <section className="w-full pb-8">
-            <div className="mx-auto flex max-w-7xl flex-col gap-6">
+            <div className="flex flex-col gap-6">
                 <header className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
                     <div className="flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FE5F00]/10 text-[#FE5F00]">
@@ -88,25 +81,39 @@ export default function AddProductPage() {
                                 </h2>
 
                                 <div className="space-y-2">
-                                    <label className="ml-1 block text-sm font-medium text-gray-700">
-                                        Categorie
-                                    </label>
-                                    <select
-                                        defaultValue="pizza"
-                                        className="h-11 w-full rounded-lg border border-black/10 bg-[#FAFAFA] px-3.5 text-sm text-gray-700 outline-none transition focus:border-[#FE5F00]/40 focus:bg-white focus:shadow-[0_0_0_3px_rgba(254,95,0,0.06)]"
-                                    >
-                                        {categories.map((category) => (
-                                            <option key={category.id} value={category.id}>
-                                                {category.label}
-                                            </option>
-                                        ))}
-                                    </select>
+                                    <div className="flex items-center justify-between gap-2">
+                                        <label className="ml-1 block text-sm font-medium text-gray-700">
+                                            Categorii (mock)
+                                        </label>
+                                        <Button onlyIcon kind="ghost" color="secondary" size="xs">
+                                            <Plus size={14} />
+                                        </Button>
+                                    </div>
+                                    <div className="rounded-xl border border-black/8 bg-[#FAFAFA] p-3">
+                                        <div className="flex flex-wrap gap-2">
+                                            {categories.map((category) => (
+                                                <button
+                                                    key={category.id}
+                                                    type="button"
+                                                    className="inline-flex items-center gap-1 rounded-full border border-[#FE5F00]/20 bg-[#FE5F00]/8 px-3 py-1 text-xs font-medium text-[#D24E00]"
+                                                >
+                                                    <Check size={12} />
+                                                    {category.label}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="ml-1 block text-sm font-medium text-gray-700">
-                                        Ingrediente (mock)
-                                    </label>
+                                    <div className="flex items-center justify-between gap-2">
+                                        <label className="ml-1 block text-sm font-medium text-gray-700">
+                                            Ingrediente (mock)
+                                        </label>
+                                        <Button onlyIcon kind="ghost" color="secondary" size="xs">
+                                            <Plus size={14} />
+                                        </Button>
+                                    </div>
                                     <div className="rounded-xl border border-black/8 bg-[#FAFAFA] p-3">
                                         <div className="flex flex-wrap gap-2">
                                             {ingredients.map((ingredient) => (
@@ -201,7 +208,7 @@ export default function AddProductPage() {
                                         <textarea
                                             rows={3}
                                             placeholder="Descriere scurta pentru lista de produse"
-                                            className="w-full resize-y rounded-lg border border-black/8 bg-[#FAFAFA] px-3.5 py-2.5 text-sm text-gray-700 outline-none transition focus:border-[#FE5F00]/40 focus:bg-white focus:shadow-[0_0_0_3px_rgba(254,95,0,0.06)]"
+                                            className="w-full resize-y rounded-lg border border-black/8 bg-[#FAFAFA] px-3.5 py-2.5 text-sm text-gray-700 transition outline-none focus:border-[#FE5F00]/40 focus:bg-white focus:shadow-[0_0_0_3px_rgba(254,95,0,0.06)]"
                                         />
                                     </div>
 
@@ -219,7 +226,7 @@ export default function AddProductPage() {
                                         <textarea
                                             rows={2}
                                             placeholder="Meta description demo"
-                                            className="w-full resize-y rounded-lg border border-black/8 bg-[#FAFAFA] px-3.5 py-2.5 text-sm text-gray-700 outline-none transition focus:border-[#FE5F00]/40 focus:bg-white focus:shadow-[0_0_0_3px_rgba(254,95,0,0.06)]"
+                                            className="w-full resize-y rounded-lg border border-black/8 bg-[#FAFAFA] px-3.5 py-2.5 text-sm text-gray-700 transition outline-none focus:border-[#FE5F00]/40 focus:bg-white focus:shadow-[0_0_0_3px_rgba(254,95,0,0.06)]"
                                         />
                                     </div>
                                 </div>
@@ -230,7 +237,9 @@ export default function AddProductPage() {
 
                 {activeTab === "images" && (
                     <div className="rounded-2xl border border-dashed border-gray-200 bg-white p-8 text-center">
-                        <p className="text-sm text-gray-500">Tab imagini ramas gol momentan (UI only).</p>
+                        <p className="text-sm text-gray-500">
+                            Tab imagini ramas gol momentan (UI only).
+                        </p>
                     </div>
                 )}
             </div>
