@@ -38,6 +38,7 @@ const buttonCva = cva(
     {
         variants: {
             size: {
+                xs: "h-7 px-2 text-[11px]",
                 sm: "h-9 px-2.5 text-xs",
                 md: "h-11 px-3.5 text-sm",
                 lg: "h-13 px-4 text-base",

@@ -1,45 +1,15 @@
-import {
-    ChartBarStacked,
-    ChevronRight,
-    ClipboardList,
-    LayoutDashboard,
-    Package,
-    Settings,
-    Soup,
-} from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { PropsWithChildren } from "react"
 import { cn } from "@shared/utils/cn"
-import { DASHBOARD_ROUTES } from "@shared/const"
 import { SidebarLogo } from "./sidebar-logo"
 import { SidebarMembers } from "./sidebar-members"
 import { SidebarItem } from "./sidebar-item"
-
-const menuGroups = [
-    {
-        group: "General",
-        items: [
-            { label: "Dashboard", to: DASHBOARD_ROUTES.HOME, icon: <LayoutDashboard /> },
-            { label: "Comenzi", to: DASHBOARD_ROUTES.ORDERS, icon: <ClipboardList /> },
-        ],
-    },
-    {
-        group: "Gestiune Catalog",
-        items: [
-            { label: "Produse", to: DASHBOARD_ROUTES.PRODUCTS, icon: <Package /> },
-            { label: "Categorii", to: DASHBOARD_ROUTES.CATEGORIES, icon: <ChartBarStacked /> },
-            { label: "Ingrediente", to: DASHBOARD_ROUTES.INGREDIENTS, icon: <Soup /> },
-        ],
-    },
-    {
-        group: "Administrare",
-        items: [{ label: "Setari", to: DASHBOARD_ROUTES.SETTINGS, icon: <Settings /> }],
-    },
-]
+import { MENU_GROUPS } from "../const/menu"
 
 const SidebarLayout = ({ children }: PropsWithChildren) => {
     return (
-        <aside className="h-screen w-full max-w-87">
+        <aside className="sticky top-0 h-screen w-full max-w-87">
             <div className="flex h-full flex-col overflow-hidden border border-gray-100 bg-white">
                 {children}
             </div>
@@ -84,7 +54,7 @@ export const Sidebar = () => {
             <SidebarDivider />
 
             <SidebarContent>
-                {menuGroups.map((group) => (
+                {MENU_GROUPS.map((group) => (
                     <SidebarGroup key={group.group}>
                         <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
                         <div className="space-y-0.5">
