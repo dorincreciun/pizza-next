@@ -49,9 +49,7 @@ const Header = () => {
     return (
         <div className="flex justify-between gap-4 px-4">
             <div>
-                <div className="text-xs font-bold tracking-wider text-gray-400 uppercase">
-                    Site
-                </div>
+                <div className="text-xs font-bold tracking-wider text-gray-400 uppercase">Site</div>
                 <div className="mt-1 flex items-center gap-3">
                     <h1 className="text-3xl font-semibold tracking-tight text-gray-900">
                         Utilizatori
@@ -116,7 +114,10 @@ export default function UsersPage() {
                                 </Table.HeadCell>
                                 <Table.HeadCell>
                                     <div className="flex items-center gap-2 whitespace-nowrap">
-                                        <CalendarDays size={13} className="shrink-0 text-gray-400" />
+                                        <CalendarDays
+                                            size={13}
+                                            className="shrink-0 text-gray-400"
+                                        />
                                         Înregistrat
                                     </div>
                                 </Table.HeadCell>
@@ -157,7 +158,9 @@ export default function UsersPage() {
                                             <span className="tabular-nums">{u.phone}</span>
                                         </div>
                                     </Table.Cell>
-                                    <Table.Cell className="text-sm text-gray-600">{u.role}</Table.Cell>
+                                    <Table.Cell className="text-sm text-gray-600">
+                                        {u.role}
+                                    </Table.Cell>
                                     <Table.Cell>
                                         <span
                                             className={
@@ -171,19 +174,37 @@ export default function UsersPage() {
                                     </Table.Cell>
                                     <Table.Cell>
                                         <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                                            <CalendarArrowDown size={11} className="shrink-0 text-gray-400" />
+                                            <CalendarArrowDown
+                                                size={11}
+                                                className="shrink-0 text-gray-400"
+                                            />
                                             <span className="tabular-nums">{u.registeredAt}</span>
                                         </div>
                                     </Table.Cell>
                                     <Table.Cell className="py-4 pr-5 pl-4 text-right">
-                                        <div className="flex flex-col items-end justify-center gap-1.5">
-                                            <Button onlyIcon kind="ghost" color="secondary" size="xs">
+                                        <div className="flex flex-col items-end justify-center">
+                                            <Button
+                                                onlyIcon
+                                                kind="ghost"
+                                                color="secondary"
+                                                size="xs"
+                                            >
                                                 <Eye size={16} />
                                             </Button>
-                                            <Button onlyIcon kind="ghost" color="secondary" size="xs">
+                                            <Button
+                                                onlyIcon
+                                                kind="ghost"
+                                                color="secondary"
+                                                size="xs"
+                                            >
                                                 <Settings size={16} />
                                             </Button>
-                                            <Button onlyIcon kind="ghost" color="secondary" size="xs">
+                                            <Button
+                                                onlyIcon
+                                                kind="ghost"
+                                                color="secondary"
+                                                size="xs"
+                                            >
                                                 <Trash size={16} />
                                             </Button>
                                         </div>
