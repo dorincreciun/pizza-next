@@ -10,4 +10,5 @@ export const DASHBOARD_ROUTES = {
     SETTINGS: "/dashboard/settings",
     CATEGORIES: "/dashboard/categories",
     INGREDIENTS: "/dashboard/ingredients",
+    USERS: "/dashboard/users",
 } as const

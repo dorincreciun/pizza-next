@@ -6,6 +6,7 @@ import {
     Package,
     Settings,
     Soup,
+    Users,
 } from "lucide-react"
 
 export const MENU_GROUPS = [
@@ -30,6 +31,13 @@ export const MENU_GROUPS = [
     },
     {
         group: "Administrare",
-        items: [{ label: "Setari", to: DASHBOARD_ROUTES.SETTINGS, icon: <Settings size={18} /> }],
+        items: [
+            {
+                label: "Utilizatori",
+                to: DASHBOARD_ROUTES.USERS,
+                icon: <Users size={18} />,
+            },
+            { label: "Setari", to: DASHBOARD_ROUTES.SETTINGS, icon: <Settings size={18} /> },
+        ],
     },
 ]
